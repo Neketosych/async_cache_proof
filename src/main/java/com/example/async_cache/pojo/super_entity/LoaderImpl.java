@@ -23,6 +23,7 @@ public class LoaderImpl implements Loader {
     @Override
     public void startLoad(String token) {
         log.info("startLoad");
+        superEntityrepository.save(SuperEntity.builder().id(token).build());
         simulator.simulateLoadBook(token);
         simulator.simulateLoadPerson(token);
     }
